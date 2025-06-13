@@ -1,0 +1,549 @@
+---
+title: Prompting V1.0
+description: Prompt structure, levels of prompting, meta/reverse meta prompting, and foundational tactics with examples for CodinIT
+date: 2025-06-12
+---
+
+# Prompting 1.1
+**Prompt structure, levels of prompting, meta/reverse meta prompting, and foundational tactics with examples**
+
+## Heads up!
+
+To help you make the most out of CodinIT, we compiled a list of prompting strategies and approaches. Some of these were collected from our team's experience, and others were shared with us by our community members. Since CodinIT relies on large language models (LLMs), effective prompting strategies can significantly improve its efficiency and accuracy.
+
+<details className="faq-dropdown">
+<summary>Where do these prompting strategies come from?</summary>
+<div className="faq-content">
+<p>Placeholder: Information about the research sources, community contributions, and validation methods for these prompting techniques will be detailed here.</p>
+</div>
+</details>
+
+## What is Prompting?
+
+Prompting refers to the textual instructions you give an AI system to perform a task. In CodinIT (an AI-powered app builder), prompts are how you "tell" the AI what to do – from creating a UI to writing backend logic. Effective prompting is critical because CodinIT uses large language models (LLMs), so clear, well-crafted prompts can greatly improve the AI's efficiency and accuracy in building your app. In short, **better prompts lead to better results**.
+
+<details className="faq-dropdown">
+<summary>What makes a prompt "effective" in CodinIT?</summary>
+<div className="faq-content">
+<p>Placeholder: Detailed explanation of prompt effectiveness metrics, success indicators, and measurement criteria will be provided here.</p>
+</div>
+</details>
+
+## Why Prompting Matters
+
+Most people think prompting is just typing a request into an AI and hoping for the best – not so. The difference between a mediocre AI response and having AI build entire workflows for you comes down to how you prompt. Whether you're a developer or non-technical, mastering prompt engineering in CodinIT can help you:
+
+- **Automate repetitive tasks** by instructing the AI precisely what to do
+- **Debug faster** with AI-generated insights and solutions
+- **Build and optimize workflows** effortlessly, letting AI handle the heavy lifting once properly guided
+
+And the best part? You don't need to be an expert programmer. With the right prompting techniques, you can unlock AI's full potential in CodinIT without wasted trial-and-error.
+
+<details className="faq-dropdown">
+<summary>How long does it take to learn effective prompting?</summary>
+<div className="faq-content">
+<p>Placeholder: Learning timeline, skill progression milestones, and practice recommendations will be outlined here.</p>
+</div>
+</details>
+
+## Understanding How AI Thinks
+
+Unlike traditional coding, working with AI is about communicating your intentions clearly. Large Language Models (LLMs) like the ones powering CodinIT don't "understand" in a human sense – they predict outputs based on patterns in their training data.
+
+### Key AI Communication Principles
+
+- **Provide Context and Details**: AI models have no common sense or implicit context beyond what you give them. Always supply relevant background or requirements.
+- **Be Explicit with Instructions**: Never assume the AI will infer your goals. If you have constraints or preferences, state them clearly.
+- **Structure Matters**: Models pay special attention to the beginning and end of your prompt. Put crucial details at the start.
+- **Know the Model's Limits**: The AI's knowledge comes from training data and can't know about recent events or proprietary info you haven't provided.
+
+<details className="faq-dropdown">
+<summary>How do I know if I'm providing enough context?</summary>
+<div className="faq-content">
+<p>Placeholder: Guidelines for context assessment, context sufficiency indicators, and context optimization strategies will be detailed here.</p>
+</div>
+</details>
+
+## Core Prompting Principles: The C.L.E.A.R. Framework
+
+Great prompts follow a set of simple principles. Use **C.L.E.A.R.** as a checklist when crafting your instructions:
+
+<Steps>
+  <Step>
+    <StepTitle>C - Concise</StepTitle>
+    <StepContent>
+      <div>
+        Be clear and get to the point. Extra fluff or vague language can confuse the model.
+        <ul>
+          <li>**BAD**: "Could you maybe write something about a science topic?"</li>
+          <li>**GOOD**: "Write a 200-word summary of the effects of climate change on coastal cities."</li>
+        </ul>
+        <details className="faq-dropdown">
+          <summary>How do I balance being concise with providing enough detail?</summary>
+          <div className="faq-content">
+            <p>Placeholder: Strategies for finding the right balance between brevity and completeness in prompts will be explained here.</p>
+          </div>
+        </details>
+      </div>
+    </StepContent>
+  </Step>
+  <Step>
+    <StepTitle>L - Logical</StepTitle>
+    <StepContent>
+      <div>
+        Organize your prompt in a step-by-step or well-structured manner. Break complex requests into ordered steps.
+        <ul>
+          <li>**BAD**: "Build me a user signup feature and also show some stats on usage."</li>
+          <li>**GOOD**: "First, implement a user sign-up form with email and password using Supabase. Then, display a dashboard showing user count statistics."</li>
+        </ul>
+        <details className="faq-dropdown">
+          <summary>What's the best way to structure complex multi-step requests?</summary>
+          <div className="faq-content">
+            <p>Placeholder: Best practices for organizing complex prompts, sequencing steps, and managing dependencies will be provided here.</p>
+          </div>
+        </details>
+      </div>
+    </StepContent>
+  </Step>
+  <Step>
+    <StepTitle>E - Explicit</StepTitle>
+    <StepContent>
+      <div>
+        State exactly what you want and don't want. If something is important, spell it out.
+        <ul>
+          <li>**BAD**: "Tell me about dogs." (Too open-ended)</li>
+          <li>**GOOD**: "List 5 unique facts about Golden Retrievers, in bullet points."</li>
+        </ul>
+        <details className="faq-dropdown">
+          <summary>How explicit should I be about technical requirements?</summary>
+          <div className="faq-content">
+            <p>Placeholder: Guidelines for specifying technical details, constraints, and requirements in prompts will be detailed here.</p>
+          </div>
+        </details>
+      </div>
+    </StepContent>
+  </Step>
+  <Step>
+    <StepTitle>A - Adaptive</StepTitle>
+    <StepContent>
+      <div>
+        Don't settle for the first answer if it's not perfect – prompts can be refined iteratively. Use dialogue to guide the model to better results.
+        <details className="faq-dropdown">
+          <summary>How many iterations should I expect for complex prompts?</summary>
+          <div className="faq-content">
+            <p>Placeholder: Iteration strategies, refinement techniques, and expectation management for prompt optimization will be covered here.</p>
+          </div>
+        </details>
+      </div>
+    </StepContent>
+  </Step>
+  <Step>
+    <StepTitle>R - Reflective</StepTitle>
+    <StepContent>
+      <div>
+        Take time to review what worked and what didn't after each AI interaction. Note which prompt phrasing got good results.
+        <details className="faq-dropdown">
+          <summary>How do I build a personal library of effective prompts?</summary>
+          <div className="faq-content">
+            <p>Placeholder: Methods for documenting successful prompts, creating prompt s, and building reusable prompt libraries will be explained here.</p>
+          </div>
+        </details>
+      </div>
+    </StepContent>
+  </Step>
+</Steps>
+
+## The Four Levels of Prompting
+
+Effective prompting is a skill that grows with practice. Here are four levels of prompting mastery:
+
+### Level 1: Structured "Training Wheels" Prompting
+
+When starting or tackling complex tasks, use a labeled structure in your prompt:
+
+<Steps>
+  <Step>
+    <StepTitle>Context</StepTitle>
+    <StepContent>
+      <div>
+        Background or role setup for the AI.
+        <br />**Example**: "You are a world-class CodinIT AI coding assistant."
+      </div>
+    </StepContent>
+  </Step>
+  <Step>
+    <StepTitle>Task</StepTitle>
+    <StepContent>
+      <div>
+        The specific goal you want to achieve.
+        <br />**Example**: "Build a full-stack to-do list app with user login and real-time sync."
+      </div>
+    </StepContent>
+  </Step>
+  <Step>
+    <StepTitle>Guidelines</StepTitle>
+    <StepContent>
+      <div>
+        Preferred approach or style.
+        <br />**Example**: "Use React for frontend, Tailwind for styling, and Supabase for auth and database."
+      </div>
+    </StepContent>
+  </Step>
+  <Step>
+    <StepTitle>Constraints</StepTitle>
+    <StepContent>
+      <div>
+        Hard limits or must-not-dos.
+        <br />**Example**: "Do not use any paid APIs. The app should work on mobile and desktop."
+        <details className="faq-dropdown">
+          <summary>When should I move beyond structured prompting?</summary>
+          <div className="faq-content">
+            <p>Placeholder: Indicators for advancing to more conversational prompting styles and skill progression markers will be detailed here.</p>
+          </div>
+        </details>
+      </div>
+    </StepContent>
+  </Step>
+</Steps>
+
+### Level 2: Conversational Prompting
+
+As you get comfortable, write to the AI more naturally, like explaining a task to a colleague:
+
+```
+Let's build a feature to upload a profile picture. It should include a form with an image file input and a submit button. When submitted, it should store the image in Supabase storage and update the user profile. Please write the necessary React component and any backend function needed for this, and ensure to handle errors (like file too large) gracefully.
+```
+
+<details className="faq-dropdown">
+<summary>How do I maintain clarity in conversational prompts?</summary>
+<div className="faq-content">
+<p>Placeholder: Techniques for keeping conversational prompts focused, clear, and comprehensive will be provided here.</p>
+</div>
+</details>
+
+### Level 3: Meta Prompting (AI-Assisted Prompt Improvement)
+
+Ask the AI to help improve your prompts:
+
+- "Review my last prompt and identify any ambiguity or missing info. How can I rewrite it to be more concise and precise?"
+- "Rewrite this prompt to be more specific and detailed: 'Create a secure login page in React using Supabase.'"
+
+<details className="faq-dropdown">
+<summary>What are the best practices for meta prompting?</summary>
+<div className="faq-content">
+<p>Placeholder: Advanced meta prompting techniques, collaboration strategies with AI, and prompt optimization workflows will be covered here.</p>
+</div>
+</details>
+
+### Level 4: Reverse Meta Prompting (AI as Documentation Tool)
+
+Use the AI to summarize and document what happened for future reference:
+
+```
+Summarize the errors we encountered setting up JWT authentication and explain how we resolved them. Then, draft a prompt I could use in the future to avoid those mistakes when setting up auth.
+```
+
+<details className="faq-dropdown">
+<summary>How do I use reverse meta prompting for knowledge building?</summary>
+<div className="faq-content">
+<p>Placeholder: Strategies for building institutional knowledge, creating documentation, and learning from AI interactions will be detailed here.</p>
+</div>
+</details>
+
+## Advanced Prompting Techniques
+
+### Zero-Shot vs. Few-Shot Prompting
+
+**Zero-Shot Prompting**: Ask the model to perform a task with no examples.
+```
+Translate the following sentence to Spanish: 'I am learning to code.'
+```
+
+**Few-Shot Prompting**: Provide examples to show the AI exactly what you want.
+```
+Correct the grammar in these sentences:
+Input: "the code not working good" → Output: "The code is not working well."
+Input: "API give error in login" → Output: "The API gives an error during login."
+Now Input: "user not found in database" → Output:
+```
+
+<details className="faq-dropdown">
+<summary>When should I use few-shot vs zero-shot prompting?</summary>
+<div className="faq-content">
+<p>Placeholder: Decision frameworks for choosing prompting approaches, use case examples, and performance comparisons will be provided here.</p>
+</div>
+</details>
+
+### Managing Hallucinations and Ensuring Accuracy
+
+<Steps>
+  <Step>
+    <StepTitle>Provide Grounding Data</StepTitle>
+    <StepContent>
+      <div>
+        Always leverage the Knowledge Base for your project. Include relevant documentation snippets or data in your prompts.
+        <details className="faq-dropdown">
+          <summary>How do I set up an effective Knowledge Base?</summary>
+          <div className="faq-content">
+            <p>Placeholder: Knowledge Base organization strategies, content curation best practices, and maintenance workflows will be explained here.</p>
+          </div>
+        </details>
+      </div>
+    </StepContent>
+  </Step>
+  <Step>
+    <StepTitle>Ask for Step-by-Step Reasoning</StepTitle>
+    <StepContent>
+      <div>
+        Prompt the AI to show its reasoning: "Explain your solution approach before giving the final code."
+      </div>
+    </StepContent>
+  </Step>
+  <Step>
+    <StepTitle>Instruct Honesty</StepTitle>
+    <StepContent>
+      <div>
+        Include guidelines like: "If you are not sure of a fact or the correct code, do not fabricate it – instead, explain what would be needed."
+      </div>
+    </StepContent>
+  </Step>
+  <Step>
+    <StepTitle>Iterative Verification</StepTitle>
+    <StepContent>
+      <div>
+        After the AI gives an answer, ask it to double-check: "Confirm that the above code follows the requirements and explain any part that might not meet the spec."
+      </div>
+    </StepContent>
+  </Step>
+</Steps>
+
+## CodinIT-Specific Best Practices
+
+### Start with a Solid Knowledge Base
+
+<Steps>
+  <Step>
+    <StepTitle>Set Up Project Context</StepTitle>
+    <StepContent>
+      <div>
+        Include Project Requirements (PRD), user flows, tech stack details, and UI design guidelines in your Knowledge Base.
+        <details className="faq-dropdown">
+          <summary>What should I include in my project's Knowledge Base?</summary>
+          <div className="faq-content">
+            <p>Placeholder: Comprehensive checklist of Knowledge Base components, content organization strategies, and maintenance best practices will be detailed here.</p>
+          </div>
+        </details>
+      </div>
+    </StepContent>
+  </Step>
+  <Step>
+    <StepTitle>Prompt for Context Awareness</StepTitle>
+    <StepContent>
+      <div>
+        Start with: "Before writing any code, read the project Knowledge Base and confirm you understand the app's purpose and constraints."
+      </div>
+    </StepContent>
+  </Step>
+</Steps>
+
+### Be Specific, Avoid Vagueness
+
+**DON'T**:
+```
+Make this app better.
+Create a form for user input.
+```
+
+**DO**:
+```
+Refactor the app to clean up unused components and improve performance, without changing UI or functionality.
+Create a user registration form with fields for username, email, and password and include a submit button.
+```
+
+<details className="faq-dropdown">
+<summary>How do I identify and fix vague prompts?</summary>
+<div className="faq-content">
+<p>Placeholder: Techniques for prompt clarity assessment, common vagueness patterns, and specificity improvement strategies will be provided here.</p>
+</div>
+</details>
+
+### Incremental Prompting
+
+Break your development process into logical steps:
+
+<Steps>
+  <Step>
+    <StepTitle>Step 1: Foundation</StepTitle>
+    <StepContent>
+      <div>
+        "Set up a Supabase-connected CRM backend."
+      </div>
+    </StepContent>
+  </Step>
+  <Step>
+    <StepTitle>Step 2: Authentication</StepTitle>
+    <StepContent>
+      <div>
+        "Great! Could you please add a secure authentication flow with user roles?"
+      </div>
+    </StepContent>
+  </Step>
+  <Step>
+    <StepTitle>Step 3: Integration</StepTitle>
+    <StepContent>
+      <div>
+        "Thank you! The next step is to integrate Google Sheets to export records."
+        <details className="faq-dropdown">
+          <summary>How do I plan effective incremental development sequences?</summary>
+          <div className="faq-content">
+            <p>Placeholder: Development sequencing strategies, dependency management, and incremental planning methodologies will be explained here.</p>
+          </div>
+        </details>
+      </div>
+    </StepContent>
+  </Step>
+</Steps>
+
+### Use CodinIT's Modes Intentionally
+
+- **Chat Mode**: Use for planning, brainstorming, and debugging without modifying code
+- **Default Mode**: Use for implementing changes and writing code
+
+**Example workflow**:
+1. In Chat Mode: "I want to add a blog section to my app. Let's discuss how to structure the data and pages."
+2. In Default Mode: "Create a BlogPost page and a Supabase table for blog posts based on the above plan."
+
+<details className="faq-dropdown">
+<summary>What are the advantages of each mode?</summary>
+<div className="faq-content">
+<p>Placeholder: Detailed comparison of Chat vs Default modes, use case scenarios, and mode switching strategies will be covered here.</p>
+</div>
+</details>
+
+### Include Constraints and Requirements
+
+Always spell out constraints clearly:
+
+```
+Create a simple to-do app with a maximum of 3 tasks visible at a time.
+Include the ability to add, edit, and delete tasks.
+
+Optimize this code, but ensure the UI and core functionality remain unchanged. Document each change you make.
+
+Use at most 3 API calls for this, and ensure no external library is required.
+```
+
+### Use Image Prompts Effectively
+
+CodinIT allows image uploads with prompts:
+
+**Simple approach**:
+```
+Create and implement a UI that looks as similar as possible to the image attached.
+```
+
+**Detailed approach**:
+```
+I want you to create the app as similar as possible to the one shown in this screenshot.
+It's essentially a kanban clone.
+It should have the ability to add new cards (tickets) in each column, have the ability to change the order of those tickets within a single column, and even move those cards between columns.
+Feel free to use the React DnD npm package for drag-and-drop functionality.
+```
+
+<details className="faq-dropdown">
+<summary>What makes an effective image prompt?</summary>
+<div className="faq-content">
+<p>Placeholder: Image prompt best practices, visual communication strategies, and image preparation guidelines will be detailed here.</p>
+</div>
+</details>
+
+## Advanced Tips and Techniques
+
+### Provide Precise Edit Instructions
+
+Focus the AI on specific components:
+```
+In the Header component, change the signup button's text to 'Get Started' and move it to the left side of the nav bar.
+```
+
+Add constraints:
+```
+Do not modify any other components or logic unrelated to the header.
+```
+
+### Design and UI Tweaks
+
+For visual changes:
+```
+Make the login button blue and 20% larger, but do not alter any of its functionality or onClick logic.
+```
+
+For responsiveness:
+```
+Optimize the landing page for mobile: use a mobile-first approach. Start by outlining how each section should rearrange on smaller screens, then implement those CSS changes using standard Tailwind breakpoints.
+```
+
+### Debugging with AI Assistance
+
+<Steps>
+  <Step>
+    <StepTitle>Provide Error Context</StepTitle>
+    <StepContent>
+      <div>
+        Copy error logs and relevant code into a prompt: "Here's the error and relevant code snippet – what is causing this and how can we fix it?"
+      </div>
+    </StepContent>
+  </Step>
+  <Step>
+    <StepTitle>Use Adaptive Approach</StepTitle>
+    <StepContent>
+      <div>
+        If the first fix doesn't work, clarify: "The fix didn't work. The state is still undefined at runtime. What else could be wrong?"
+      </div>
+    </StepContent>
+  </Step>
+  <Step>
+    <StepTitle>Leverage Chat Mode</StepTitle>
+    <StepContent>
+      <div>
+        Discuss the bug: "Let's think through possible causes." Have a back-and-forth until finding a solution.
+        <details className="faq-dropdown">
+          <summary>How do I effectively collaborate with AI on debugging?</summary>
+          <div className="faq-content">
+            <p>Placeholder: Collaborative debugging techniques, AI assistance strategies, and problem-solving workflows will be detailed here.</p>
+          </div>
+        </details>
+      </div>
+    </StepContent>
+  </Step>
+</Steps>
+
+## When (and When Not) to Use AI
+
+**Use AI for**:
+- Complex logic and multi-step operations
+- Boilerplate generation
+- Things you're unsure about
+- New feature implementation from scratch
+
+**Don't use AI for**:
+- Extremely small changes (changing a text label, adjusting padding)
+- Simple fixes you can do quickly manually
+- When it might use up your prompt quota unnecessarily
+
+<details className="faq-dropdown">
+<summary>How do I optimize my prompt usage for efficiency?</summary>
+<div className="faq-content">
+<p>Placeholder: Strategies for prompt economy, usage optimization, and efficiency maximization will be provided here.</p>
+</div>
+</details>
+
+## Conclusion
+
+Master-level prompting turns AI from a gimmick into a reliable teammate. With practice, you'll build apps faster, debug with less frustration, and explore creative solutions by simply asking the right questions and giving the right guidance.
+
+The key is to stay smart, concise, direct, and adaptive in your instructions. Always keep learning from each interaction – every prompt/response is feedback for you to refine your technique further.
+
+**Focus on your big ideas – let CodinIT's AI handle the execution details once you clearly tell it what to do.**
+
+🎉 Happy prompting, and happy building!

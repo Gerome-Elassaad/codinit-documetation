@@ -1,0 +1,255 @@
+---
+title: "Google Gemini - CodinIT"
+description: Configure Google Gemini API with CodinIT to access Google's latest generative AI models including Gemini 2.5 Pro and Gemini 2.5 Flash. This guide covers API key setup, authentication, and seamless integration for development teams.
+date: 2025-06-14
+---
+
+# Google Gemini API
+
+> Configure Google Gemini API with CodinIT to access Google's latest generative AI models including Gemini 2.5 Pro and Gemini 2.5 Flash. This guide covers API key setup, authentication, and seamless integration for development teams.
+
+### Overview
+
+**Google Gemini API:**\
+A direct REST API that provides access to Google's cutting-edge generative AI models—including Gemini 2.5 Pro, Gemini 2.5 Flash, and Gemini 2.0 Flash—through a simple HTTP interface.\
+[Learn more about Google Gemini API](https://ai.google.dev/).
+
+This guide is designed for developers and teams who want quick, straightforward access to Google's AI models without the complexity of full cloud platform setup.
+
+***
+
+### Step 1: Obtain Your Gemini API Key
+
+#### 1.1 Create an API Key
+
+* **Visit Google AI Studio:**\
+  [Google AI Studio](https://aistudio.google.com/)
+* **Sign in with your Google Account:**\
+  Use your existing Google account or create a new one
+* **Generate an API Key:**
+  * Click "Get API Key" in the left sidebar
+  * Select "Create API key in new project" or choose an existing Google Cloud project
+  * Copy your generated API key securely
+
+#### 1.2 API Key Security Best Practices
+
+* **Keep your API key secure:**
+  * Never commit API keys to version control
+  * Store keys in environment variables or secure vaults
+  * Rotate keys regularly for enhanced security
+* **Set up API key restrictions:**
+  * In Google Cloud Console, navigate to "APIs & Services > Credentials"
+  * Click on your API key and configure application restrictions
+  * Add HTTP referrer restrictions for web applications or IP restrictions for server applications
+
+***
+
+### Step 2: Choose Your Model and Verify Access
+
+#### 2.1 Available Gemini Models
+
+Select from Google's latest generative AI models:
+
+* **Gemini 2.0 Flash (Experimental)** - Latest model with enhanced capabilities
+* **Gemini 2.5 Pro** - Advanced reasoning and complex task handling
+* **Gemini 2.5 Flash** - Fast, efficient model for quick responses
+* **Gemini 1.0 Pro** - Stable, reliable model for general use cases
+
+#### 2.2 Model Capabilities and Limits
+
+Each model has different:
+* **Context windows** (ranging from 30K to 2M tokens)
+* **Rate limits** (requests per minute/day)
+* **Pricing structures** (free tier available)
+
+Check the [Gemini API documentation](https://ai.google.dev/gemini-api/docs/models/gemini) for current specifications.
+
+***
+
+### Step 3: Configure the CodinIT VS Code Extension
+
+#### 3.1 Install and Open CodinIT
+
+* **Download VS Code:**\
+  [Download Visual Studio Code](https://code.visualstudio.com/)
+* **Install the CodinIT Extension:**
+  * Open VS Code
+  * Navigate to the Extensions Marketplace (Ctrl+Shift+X or Cmd+Shift+X)
+  * Search for **CodinIT** and install the extension
+
+<Frame>
+  <img src="https://storage.googleapis.com/CodinIT_public_images/docs/assets/CodinIT-extension-arrow.png" alt="CodinIT extension in VS Code" />
+</Frame>
+
+#### 3.2 Configure CodinIT Settings
+
+* **Open CodinIT Settings:**\
+  Click the settings ⚙️ icon within the CodinIT extension
+* **Set API Provider:**\
+  Choose **Google Gemini API** from the API Provider dropdown
+* **Enter Your API Key:**\
+  Paste the API key you generated in Step 1
+* **Select the Model:**\
+  Choose your preferred model (e.g., **Gemini 2.5 Pro** or **Gemini 2.5 Flash**)
+* **Save and Test:**\
+  Save your settings and test by sending a simple prompt (e.g., "Write a Python function to calculate factorial.")
+
+***
+
+### Step 4: Authentication Setup Options
+
+#### Option A: Environment Variable (Recommended)
+
+1. **Set the Environment Variable:**
+
+   **On Windows (Command Prompt):**
+   ```bash
+   set GEMINI_API_KEY=your_api_key_here
+   ```
+
+   **On Windows (PowerShell):**
+   ```shell
+   $env:GEMINI_API_KEY="your_api_key_here"
+   ```
+
+   **On macOS/Linux:**
+   ```bash
+   export GEMINI_API_KEY=your_api_key_here
+   ```
+
+2. **Restart VS Code:**\
+   Launch VS Code from the terminal where the environment variable is set
+
+#### Option B: Direct Configuration in CodinIT
+
+1. **Open CodinIT Settings:**\
+   Navigate to the CodinIT extension settings panel
+
+2. **Enter API Key Directly:**\
+   Paste your API key in the designated field
+
+3. **Save Configuration:**\
+   Settings are stored securely within VS Code
+
+#### Option C: Configuration File
+
+1. **Create a config file:**\
+   Create a `.env` file in your project root:
+   ```
+   GEMINI_API_KEY=your_api_key_here
+   ```
+
+2. **Ensure security:**\
+   Add `.env` to your `.gitignore` file to prevent accidental commits
+
+***
+
+### Step 5: Rate Limits, Quotas, and Best Practices
+
+#### 5.1 Understanding Rate Limits
+
+* **Free Tier Limits:**
+  * 15 requests per minute (RPM)
+  * 1 million tokens per day
+  * 1,500 RPM after billing is enabled
+
+* **Paid Tier Benefits:**
+  * Higher rate limits based on your plan
+  * Increased daily token allowances
+  * Priority support and reliability
+
+#### 5.2 Quota Management and Monitoring
+
+* **Monitor Usage:**
+  * Visit Google AI Studio to track your API usage
+  * Set up billing alerts in Google Cloud Console
+  * Monitor rate limit headers in API responses
+
+* **Handle Rate Limiting:**
+  * Implement exponential backoff for retries
+  * Cache responses when appropriate
+  * Consider request batching for efficiency
+
+#### 5.3 Cost Optimization
+
+* **Free Tier Strategy:**
+  * Start with the free tier for development and testing
+  * Monitor token usage to stay within limits
+  * Use shorter prompts and responses when possible
+
+* **Model Selection:**
+  * Use **Gemini 2.5 Flash** for faster, cost-effective responses
+  * Choose **Gemini 2.5 Pro** for complex reasoning tasks
+  * Experiment with **Gemini 2.0 Flash** for cutting-edge capabilities
+
+#### 5.4 Security Best Practices
+
+* **API Key Management:**
+  * Use different API keys for development, staging, and production
+  * Implement key rotation policies
+  * Monitor API key usage for unusual activity
+
+* **Application Security:**
+  * Never expose API keys in client-side code
+  * Use server-side proxy patterns for web applications
+  * Implement user authentication and authorization
+
+***
+
+### Step 6: Advanced Configuration and Troubleshooting
+
+#### 6.1 Regional Considerations
+
+While Gemini API is globally available, consider:
+* **Latency optimization** by choosing regions closer to your users
+* **Data residency requirements** for enterprise applications
+* **Compliance** with local regulations (GDPR, CCPA, etc.)
+
+#### 6.2 Common Integration Patterns
+
+* **Development Workflow:**
+  * Use Gemini 2.5 Flash for rapid prototyping
+  * Switch to Gemini 2.5 Pro for production workloads
+  * Implement fallback mechanisms between models
+
+* **Error Handling:**
+  * Handle network timeouts gracefully
+  * Implement retry logic with exponential backoff
+  * Log errors for debugging and monitoring
+
+#### 6.3 Performance Optimization
+
+* **Request Optimization:**
+  * Use appropriate temperature settings for your use case
+  * Optimize prompt length and structure
+  * Implement response streaming for real-time applications
+
+* **Caching Strategies:**
+  * Cache common responses to reduce API calls
+  * Implement intelligent cache invalidation
+  * Use CDN for static responses when appropriate
+
+***
+
+### Conclusion
+
+By following these steps, your development team can quickly integrate Google Gemini API with the CodinIT VS Code extension to leverage Google's most advanced AI models:
+
+* **Obtain Your API Key:**\
+  Generate a secure API key through Google AI Studio and implement proper security measures
+* **Choose the Right Model:**\
+  Select from Gemini 2.5 Flash, Gemini 2.5 Pro, or Gemini 2.0 Flash based on your needs
+* **Configure CodinIT:**\
+  Set up the extension with your API key and preferred model settings
+* **Implement Security:**\
+  Use environment variables and follow best practices for API key management
+* **Monitor and Optimize:**\
+  Track usage, manage costs, and optimize performance for your specific use case
+
+The Google Gemini API offers a straightforward path to integrating cutting-edge AI capabilities into your development workflow. With its simple REST interface and comprehensive model options, you can start building AI-powered applications immediately.
+
+For additional resources, consult the [Google Gemini API Documentation](https://ai.google.dev/gemini-api/docs) and the [Google AI Studio](https://aistudio.google.com/) for interactive testing and exploration.
+
+Happy coding with Google Gemini API!
+
+*This guide reflects current Gemini API capabilities and will be updated as new features and models become available. Always refer to the official documentation for the latest information.*

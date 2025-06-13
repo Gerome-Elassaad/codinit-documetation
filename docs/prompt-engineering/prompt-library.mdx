@@ -1,0 +1,592 @@
+---
+title: Prompt Engineering
+description: List of prompting strategies and approaches - reusable prompt patterns and examples for common scenarios when building with AI
+date: 2025-06-12
+---
+
+# Prompt Library
+**List of prompting strategies and approaches**
+
+Welcome to the prompt library! Here we've collected a set of reusable prompt patterns and examples for common scenarios when building with AI. Think of these as s or inspiration that you can tailor to your own project. Each section covers a particular use case – from kicking off a new project to integrating payments – with guidance on when to use it and an example prompt.
+
+Feel free to copy these, modify the details, and use them in CodinIT or any AI builder. The tone is official yet casual – just like talking to a colleague – and each prompt provides enough context so the AI knows exactly what to do.
+
+<details className="faq-dropdown">
+<summary>How do I adapt these prompts for my specific project?</summary>
+<div className="faq-content">
+<p>Placeholder: Guidelines for customizing prompt s, variable substitution strategies, and adaptation best practices will be detailed here.</p>
+</div>
+</details>
+
+## Starting Projects
+
+**When to use**: At the very beginning of a project. This prompt helps the AI understand the high-level requirements and start building the foundation.
+
+**How to use**: Outline the type of application, key technologies (frontend framework, backend, any services), and the primary features or pages. Then, direct the AI on where to start (often the main page or an important feature).
+
+<Steps>
+  <Step>
+    <StepTitle>Step 1: Define Your App Type</StepTitle>
+    <StepContent>
+      <div>
+        Clearly state what type of application you're building (e.g., task management, e-commerce, social media).
+        <details className="faq-dropdown">
+          <summary>What if I'm not sure about my app category?</summary>
+          <div className="faq-content">
+            <p>Placeholder: Guidance for identifying app categories, feature analysis, and classification strategies will be provided here.</p>
+          </div>
+        </details>
+      </div>
+    </StepContent>
+  </Step>
+  <Step>
+    <StepTitle>Step 2: Specify Tech Stack</StepTitle>
+    <StepContent>
+      <div>
+        List your preferred technologies: frontend framework, styling, backend, database, and any third-party services.
+      </div>
+    </StepContent>
+  </Step>
+  <Step>
+    <StepTitle>Step 3: Define Core Features</StepTitle>
+    <StepContent>
+      <div>
+        Outline the primary features and functionality your app needs to provide.
+        <details className="faq-dropdown">
+          <summary>How do I prioritize features for the initial build?</summary>
+          <div className="faq-content">
+            <p>Placeholder: Feature prioritization frameworks, MVP planning strategies, and scope management techniques will be explained here.</p>
+          </div>
+        </details>
+      </div>
+    </StepContent>
+  </Step>
+  <Step>
+    <StepTitle>Step 4: Choose Starting Point</StepTitle>
+    <StepContent>
+      <div>
+        Direct the AI on where to begin (typically the main dashboard, landing page, or core feature).
+      </div>
+    </StepContent>
+  </Step>
+</Steps>
+
+### Example Prompt – Starting a New Project
+
+```
+I need a **task management** application with:
+- **Tech Stack:** Next.js frontend, Tailwind CSS for styling, Supabase for auth and database.
+- **Core Features:** Project and task creation, assigning tasks to users, due date reminders, and a dashboard overview.
+
+Start by building the **main dashboard page**, containing:
+- A header with navigation,
+- A list of projects with their status,
+- and a button to create a new project.
+
+Provide dummy data for now, and ensure the design is clean and responsive.
+```
+
+### Additional Starting Prompts
+
+```
+Create a new component called [ComponentName] with these features: [list features]. Make it responsive and accessible with proper keyboard navigation. Include proper TypeScript typings for props, and use Tailwind for styling.
+```
+
+```
+Explain how this function works in simple terms, highlighting its inputs, outputs, and any side effects: [paste function]. What edge cases does it handle or miss? How could it be improved?
+```
+
+## UI/UX Design
+
+**When to use**: Any time you want to refine the look and feel of your app without changing its functionality. This could be polishing the UI, adjusting layouts, or implementing a specific design style.
+
+**How to use**: Clearly specify the scope of the design changes and emphasize that functionality should remain intact. Guide the AI on what "look" you want (e.g., modern, minimalist, match a certain design system).
+
+### Example Prompt – UI Only Changes
+
+```
+The app UI should be improved, **without changing any functionality**. 
+
+- Keep all existing logic and state management as is.
+- **Visual Enhancements:** Update the styling of the dashboard page: use a modern card design for each project listing, improve the color scheme for better contrast, and increase padding for a cleaner layout.
+- Ensure these changes do **not break any functionality or data flow**.
+
+*Goal:* purely cosmetic improvements for a more polished look, with the app behaving exactly as before.
+```
+
+<details className="faq-dropdown">
+<summary>How do I communicate design preferences effectively to AI?</summary>
+<div className="faq-content">
+<p>Placeholder: Design communication strategies, visual vocabulary, and style specification techniques will be detailed here.</p>
+</div>
+</details>
+
+### Additional UI/UX Prompts
+
+```
+Enhance the visual appeal of this component: [paste component]. Add animations, improve spacing, create a polished look while maintaining accessibility standards and responsive behavior.
+```
+
+```
+Create a comprehensive design system for my application with a color palette, typography scale, spacing system, and component variants. Include dark mode support and ensure all components are accessible (WCAG AA compliant).
+```
+
+```
+Design a responsive dashboard layout with [describe key metrics/widgets]. It should work well on mobile, tablet, and desktop with appropriate layout shifts. Include a sidebar navigation that collapses on mobile.
+```
+
+```
+Transform this desktop-only component into a mobile-first design with responsive breakpoints: [paste component]. Prioritize content and interactions for small screens first, then enhance for larger screens.
+```
+
+## Responsiveness
+
+**When to use**: When your app's layout needs to work across different screen sizes (mobile, tablet, desktop). If you notice things look good on desktop but break on mobile, it's time for a responsiveness prompt.
+
+**How to use**: Emphasize a mobile-first approach and ask the AI to ensure the design is responsive at all standard breakpoints. If using a CSS framework like Tailwind, mention to use its grid/flex and built-in breakpoints.
+
+### Example Prompt – Mobile Responsiveness
+
+```
+Our app needs to be **fully responsive** across mobile, tablet, and desktop.
+
+- Follow a **mobile-first** strategy: prioritize the layout for small screens, then adjust for larger screens.
+- Use modern UI/UX best practices for responsive design. (For Tailwind CSS, use the standard breakpoints `sm, md, lg, xl` – no custom breakpoints unless necessary.)
+- Ensure every page (especially the dashboard and project detail pages) reflows properly on a small screen: elements should stack or resize as needed, text should remain readable, and no content should overflow off-screen.
+- **Do not change the core design or functionality**, just make sure it flexibly adapts to different screen sizes.
+
+After making changes, please double-check the layout at iPhone 12 dimensions and a typical desktop width.
+```
+
+<details className="faq-dropdown">
+<summary>What are the most important responsive design considerations?</summary>
+<div className="faq-content">
+<p>Placeholder: Responsive design principles, common breakpoint strategies, and mobile-first development approaches will be covered here.</p>
+</div>
+</details>
+
+## Refactoring
+
+**When to use**: Periodically during development, especially if the AI or you have added a lot of code and things are getting messy or slow. Refactoring means cleaning up the code without changing what it does.
+
+**How to use**: Identify the scope: is it a single file, a specific feature, or the whole codebase? Emphasize that everything should behave the same after refactoring.
+
+### Example Prompt – Safe File Refactor
+
+```
+Refactor the **ProjectList component file**, but **keep its behavior and UI exactly the same**. 
+
+Goals:
+- Improve the code structure and readability (simplify complex functions, break into smaller ones if needed).
+- Remove any unused variables or imports.
+- Ensure the file follows best practices and is well-documented.
+
+Do **not** introduce any new features or change how the component works for the user – this is purely a code cleanup for maintainability. If any part of the code is unclear, add a brief comment for clarification.
+```
+
+<details className="faq-dropdown">
+<summary>How do I ensure refactoring doesn't break existing functionality?</summary>
+<div className="faq-content">
+<p>Placeholder: Safe refactoring strategies, testing approaches, and risk mitigation techniques will be explained here.</p>
+</div>
+</details>
+
+### Additional Refactoring Prompts
+
+```
+Review this code and suggest improvements for readability, performance, and maintainability: [paste code]. Focus on TypeScript best practices, proper error handling, and adherence to React patterns.
+```
+
+```
+Suggest a folder structure for a [type] application with these features: [list features]. Include guidelines for organizing components, hooks, utilities, and types with proper separation of concerns.
+```
+
+## App Types
+
+### E-commerce Applications
+
+```
+Create a starter e-commerce store with product listing, search, filtering, cart functionality, and checkout process. Include user accounts, order history, and basic product management. Focus on a clean, conversion-oriented UI.
+```
+
+### Content Management
+
+```
+Build a basic CMS for managing blog posts or articles with an admin dashboard. Include features for creating, editing, and publishing content with rich text formatting, image uploads, and basic SEO management.
+```
+
+### Project Management
+
+```
+Create a project management app with task boards, lists, and cards. Include features for task assignment, due dates, labels, comments, and progress tracking. Implement drag-and-drop functionality and user collaboration.
+```
+
+### Social Media
+
+```
+Build a social media feed component with posts, comments, likes, and sharing functionality. Include user profiles, follow/unfollow mechanics, and a notification system. Ensure the design is responsive and supports infinite scrolling.
+```
+
+### Analytics Dashboard
+
+```
+Create an analytics dashboard with multiple chart types (bar, line, pie), data filtering options, date range selection, and exportable reports. Include responsive design and skeleton loading states for data fetching.
+```
+
+### SaaS Applications
+
+```
+Build a SaaS application starter with user authentication, subscription management, a settings page, and a basic dashboard. Include role-based access control, account management, and a well-structured architecture for future expansion.
+```
+
+<details className="faq-dropdown">
+<summary>How do I choose the right app  for my project?</summary>
+<div className="faq-content">
+<p>Placeholder: App type selection criteria, feature comparison matrix, and  customization strategies will be provided here.</p>
+</div>
+</details>
+
+## React Development
+
+### Custom Hooks
+
+```
+Create a custom React hook called use[Name] that handles [functionality]. It should handle proper state initialization, cleanup, memoization of values, and TypeScript typing. Include example usage and error handling.
+```
+
+### Context Refactoring
+
+```
+Refactor this component to use React Context instead of prop drilling: [paste component]. Create a proper context provider with typed state and actions, and separate the business logic from UI rendering.
+```
+
+### Performance Optimization
+
+```
+Optimize this React component to prevent unnecessary re-renders: [paste component]. Use memo, useMemo, and useCallback where appropriate. Add explanatory comments about why each optimization is needed.
+```
+
+### Form Handling
+
+```
+Create a form with validation for [describe form fields and validation rules]. Use react-hook-form with zod schema validation, proper error handling, and submission handling that includes loading states.
+```
+
+<details className="faq-dropdown">
+<summary>What are the most important React best practices to follow?</summary>
+<div className="faq-content">
+<p>Placeholder: React development best practices, performance optimization techniques, and common anti-patterns to avoid will be detailed here.</p>
+</div>
+</details>
+
+## Locking Files / Limiting Scope
+
+**When to use**: Sometimes you want the AI to focus on specific parts of the project and leave everything else untouched – essentially "lock" certain files or areas so they are not modified.
+
+**How to use**: In your prompt, explicitly instruct the AI not to change certain files or components. Be clear about where the AI should focus changes.
+
+### Example Prompt – Limit Scope of Changes
+
+```
+Please **focus only on the Dashboard page** for this change. 
+
+- Do **not modify** the `LoginPage.tsx` or `AuthProvider.tsx` files at all (authentication is working well, and we want to keep it intact).
+- Concentrate your code edits on `Dashboard.tsx` and related dashboard components **only**.
+
+Task: Add a new section to the Dashboard that shows "Tasks due this week". Make sure to fetch the relevant tasks from the database. 
+
+*(Again, no changes to login or auth files – those are off-limits.)*
+```
+
+<details className="faq-dropdown">
+<summary>How do I protect critical components while allowing AI modifications?</summary>
+<div className="faq-content">
+<p>Placeholder: File protection strategies, scope limitation techniques, and safe AI collaboration practices will be explained here.</p>
+</div>
+</details>
+
+## Planning
+
+**When to use**: Before diving into a complex or multi-step implementation, or when you have a big feature that could be broken into sub-tasks.
+
+**How to use**: Ask the AI to produce a plan or checklist. This can be done in Chat mode to ensure it doesn't execute any code changes while planning.
+
+### Example Prompt – Planning a Feature Implementation
+
+```
+Before writing any code, **plan out the implementation** of the new Notifications feature.
+
+- List each step required to add email notifications when a task is overdue.
+- Consider both frontend (UI changes, if any) and backend (creating scheduled checks or triggers) aspects.
+- Ensure the plan keeps the current functionality stable – we can't break anything existing.
+- Provide the plan as an ordered list (1, 2, 3, ...), with a brief explanation of each step.
+
+Once you outline the plan, pause for review. **Do not make any code changes yet.**
+```
+
+<details className="faq-dropdown">
+<summary>What makes an effective feature implementation plan?</summary>
+<div className="faq-content">
+<p>Placeholder: Planning methodologies, task breakdown strategies, and implementation sequencing best practices will be detailed here.</p>
+</div>
+</details>
+
+## Stripe Setup
+
+**When to use**: When you want to integrate payments into your app using Stripe. Use this when you need to add commerce (selling a product, subscription, etc.) in your project.
+
+**How to use**: Provide the details Stripe needs: mode (test or live), product or pricing info, and redirect URLs after payment. Mention that sensitive keys will be provided securely (not hard-coded in the prompt).
+
+### Example Prompt – Integrating Stripe Payments
+
+```
+I want to **add Stripe payments** to the app.
+
+- Use **Stripe in test mode** for now.
+- We have a product in Stripe with ID `prod_12345` and a price ID `price_67890` (one-time purchase).
+- Implement a checkout button on the **Pricing page** that starts a Stripe checkout for that product.
+- After successful payment, redirect the user to `/payment-success`. If the payment is canceled, redirect to `/payment-cancelled`.
+
+Important:
+- Assume API keys and webhook secrets are configured securely (do **not** hard-code them).
+- Do **not** modify any other pages or features unrelated to payments.
+
+Once done, provide any webhook endpoint setup instructions I need (e.g., URL to add in Stripe dashboard for post-payment events).
+```
+
+<details className="faq-dropdown">
+<summary>What are the security considerations for payment integration?</summary>
+<div className="faq-content">
+<p>Placeholder: Payment security best practices, API key management, and webhook security strategies will be covered here.</p>
+</div>
+</details>
+
+## Supabase & Backend
+
+### Database Design
+
+```
+Design a database schema for [describe your application] with these entity relationships: [describe relationships]. Include foreign key constraints, indexes for performance, and proper data types with considerations for scalability.
+```
+
+### API Integration
+
+```
+Create a service to fetch data from [API name] and implement caching, error retry logic, and request throttling. Set up proper TypeScript interfaces for the response data and handle API versioning gracefully.
+```
+
+### Row Level Security
+
+```
+Create Row Level Security policies for a multi-tenant application with these tables: [list tables]. Implement proper user isolation, role-based access, and handle hierarchical data access with considerations for performance.
+```
+
+### Edge Functions
+
+```
+Create a Supabase Edge Function to handle [describe functionality] with proper error handling, input validation, and security checks. Include rate limiting and proper environment variable usage.
+```
+
+<details className="faq-dropdown">
+<summary>How do I design an effective database schema?</summary>
+<div className="faq-content">
+<p>Placeholder: Database design principles, normalization strategies, and performance optimization techniques will be detailed here.</p>
+</div>
+</details>
+
+## Using Chat Mode vs Default Mode
+
+**When to use**: CodinIT has two modes for prompting: Default Mode (which immediately applies changes to your project) and Chat-Only Mode (which is more like a conversation without altering code until you say so).
+
+**How to use**:
+- **Default Mode**: Great for when you have a well-defined feature to build or change to make
+- **Chat Mode**: Useful for back-and-forth discussions, analysis, or when you want to discuss changes before executing them
+
+<Steps>
+  <Step>
+    <StepTitle>Choose Your Mode</StepTitle>
+    <StepContent>
+      <div>
+        **Default Mode**: For straightforward building tasks ("do X for me")
+        <br />**Chat Mode**: For troubleshooting or design discussions ("why or how should we do X?")
+        <details className="faq-dropdown">
+          <summary>How do I know which mode to use for my task?</summary>
+          <div className="faq-content">
+            <p>Placeholder: Mode selection criteria, task categorization strategies, and workflow optimization techniques will be explained here.</p>
+          </div>
+        </details>
+      </div>
+    </StepContent>
+  </Step>
+  <Step>
+    <StepTitle>Brainstorm in Chat</StepTitle>
+    <StepContent>
+      <div>
+        Use Chat Mode to analyze errors, get plans, or identify issues without modifying code.
+      </div>
+    </StepContent>
+  </Step>
+  <Step>
+    <StepTitle>Execute in Default</StepTitle>
+    <StepContent>
+      <div>
+        Once you have a plan and are confident, switch to Default Mode to implement changes.
+      </div>
+    </StepContent>
+  </Step>
+</Steps>
+
+### Example Use Case – Default vs Chat
+
+**Scenario**: You suspect there is outdated code in your project that needs cleaning up.
+
+**Chat Mode approach**:
+```
+I'm seeing some deprecated library warnings. What parts of the code might be outdated, and how should we update them?
+```
+
+**Default Mode approach**:
+```
+Review the app and tell me where there is outdated code.
+```
+
+The Chat Mode approach allows for discussion and analysis, while Default Mode might immediately start making changes.
+
+## Writing Knowledge Bases and PRDs
+
+**When to use**: At the start of a project and whenever you have more context to give the AI than can fit in a single prompt. The Knowledge Base stores background information, requirements, and guidelines that persist across prompts.
+
+**How to use**: Fill out the Knowledge Base in CodinIT with key information about your project.
+
+<Steps>
+  <Step>
+    <StepTitle>Overview & Goals</StepTitle>
+    <StepContent>
+      <div>
+        What the project is and the problem it solves.
+        <details className="faq-dropdown">
+          <summary>How detailed should my project overview be?</summary>
+          <div className="faq-content">
+            <p>Placeholder: Project documentation depth guidelines, essential elements, and clarity optimization strategies will be provided here.</p>
+          </div>
+        </details>
+      </div>
+    </StepContent>
+  </Step>
+  <Step>
+    <StepTitle>User Flow</StepTitle>
+    <StepContent>
+      <div>
+        A description of how users navigate or use the app (e.g., "Users sign up, then see a dashboard, can create tasks, etc.").
+      </div>
+    </StepContent>
+  </Step>
+  <Step>
+    <StepTitle>Core Features & Scope</StepTitle>
+    <StepContent>
+      <div>
+        What features are in scope (and maybe note any out-of-scope to avoid feature creep).
+      </div>
+    </StepContent>
+  </Step>
+  <Step>
+    <StepTitle>Tech Stack</StepTitle>
+    <StepContent>
+      <div>
+        What technologies, APIs, and services will be used.
+      </div>
+    </StepContent>
+  </Step>
+  <Step>
+    <StepTitle>Design Guidelines</StepTitle>
+    <StepContent>
+      <div>
+        Any specific UI/UX instructions – branding, color scheme, layouts, accessibility requirements.
+        <details className="faq-dropdown">
+          <summary>How do I maintain consistency across my Knowledge Base?</summary>
+          <div className="faq-content">
+            <p>Placeholder: Knowledge Base organization strategies, version control, and maintenance best practices will be detailed here.</p>
+          </div>
+        </details>
+      </div>
+    </StepContent>
+  </Step>
+</Steps>
+
+### Example Prompt – Using the Knowledge Base
+
+```
+Before you write any code, please review the Knowledge Base and share your understanding of my project.
+```
+
+**Expected AI Response**:
+```
+Based on the Knowledge Base: You're building a task management app for teams. The app flow is Users sign up → see a dashboard → create projects and tasks. The tech stack is Next.js for frontend, Supabase for backend (authentication and database). Core features include project creation, task assignments, and a reporting dashboard. In-scope features: task CRUD, user roles, email notifications; Out-of-scope: real-time collaboration...
+```
+
+<details className="faq-dropdown">
+<summary>How often should I update my Knowledge Base?</summary>
+<div className="faq-content">
+<p>Placeholder: Knowledge Base maintenance schedules, update triggers, and evolution strategies will be explained here.</p>
+</div>
+</details>
+
+## Advanced Workflow Prompts
+
+### GitHub Integration
+
+```
+Connect this CodinIT project to GitHub and set up a good workflow for contributions. Include branch protection rules, PR s, and CI/CD workflow configuration with automatic preview deployments.
+```
+
+### Testing Strategy
+
+```
+Suggest a testing strategy for [component/feature] including what to test and how. Include unit tests for business logic, integration tests for data flow, and UI tests for critical user flows with best practices for mocking dependencies.
+```
+
+### Error Handling
+
+```
+Implement comprehensive error handling for this async function: [paste function]. Include retry logic, fallback mechanisms, proper error reporting, user-friendly error messages, and logging for debugging purposes.
+```
+
+### Deployment Pipeline
+
+```
+Set up a deployment pipeline for this application that includes staging and production environments, automatic database migrations, environment-specific configurations, and rollback capabilities.
+```
+
+<details className="faq-dropdown">
+<summary>How do I build a comprehensive development workflow?</summary>
+<div className="faq-content">
+<p>Placeholder: Development workflow design, automation strategies, and best practice integration techniques will be detailed here.</p>
+</div>
+</details>
+
+## Best Practices Summary
+
+### Effective Prompt Structure
+- **Be Specific**: Include exact requirements and constraints
+- **Provide Context**: Reference your Knowledge Base and project requirements
+- **Set Boundaries**: Clearly state what should and shouldn't be modified
+- **Use Examples**: Show the AI what you're looking for when possible
+
+### Mode Selection
+- **Chat Mode**: For planning, analysis, and discussion
+- **Default Mode**: For direct implementation and building
+
+### Iterative Development
+- Start with planning prompts
+- Build incrementally with focused prompts
+- Test and refine with targeted adjustments
+- Maintain your Knowledge Base as the project evolves
+
+<details className="faq-dropdown">
+<summary>How do I measure the effectiveness of my prompts?</summary>
+<div className="faq-content">
+<p>Placeholder: Prompt effectiveness metrics, success indicators, and optimization strategies will be covered here.</p>
+</div>
+</details>
+
+🎉 Ready to build? Choose the prompt pattern that matches your current need and customize it for your project. Remember to maintain your Knowledge Base and iterate on your prompts for the best results!

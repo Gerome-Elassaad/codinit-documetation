@@ -1,0 +1,323 @@
+---
+title: "TogetherAI - CodinIT"
+description: Configure Together AI with CodinIT to access leading open-source generative AI models.
+date: 2025-06-14
+---
+
+# Together AI
+
+> Configure Together AI with CodinIT to access leading open-source generative AI models including Llama 3.1, Mistral, Code Llama, and many more. This guide covers API key generation, model selection, and seamless integration for teams prioritizing open-source AI solutions.
+
+### Overview
+
+**Together AI:**\
+A high-performance inference platform that provides fast, cost-effective access to the best open-source AI models—including Llama 3.1 405B, Mistral Large, Code Llama, Qwen, and dozens more—through a simple REST API.\
+[Learn more about Together AI](https://www.together.ai/).
+
+This guide is designed for developers and teams who want access to cutting-edge open-source models with transparent pricing, fast inference, and enterprise-grade reliability.
+
+***
+
+### Step 1: Create Your Together AI Account and API Key
+
+#### 1.1 Sign Up for Together AI
+
+* **Visit Together AI:**\
+  [Together AI Platform](https://api.together.xyz/)
+* **Create Your Account:**
+  * Click "Sign Up" and register with your email
+  * Verify your email address
+  * Complete your profile setup
+
+#### 1.2 Generate Your API Key
+
+* **Access the API Keys Section:**
+  * Log into your Together AI dashboard
+  * Navigate to "API Keys" in the left sidebar
+  * Click "Create new API key"
+* **Configure Your API Key:**
+  * Provide a descriptive name (e.g., "CodinIT Development")
+  * Set permissions and usage limits if needed
+  * Copy and securely store your generated API key
+
+#### 1.3 API Key Security and Management
+
+* **Security Best Practices:**
+  * Store API keys in environment variables or secure vaults
+  * Never commit API keys to version control systems
+  * Use different keys for development, staging, and production environments
+* **Key Management:**
+  * Monitor usage through the Together AI dashboard
+  * Rotate keys regularly for enhanced security
+  * Set up usage alerts to track consumption
+
+***
+
+### Step 2: Explore Available Models and Choose Your Configuration
+
+#### 2.1 Open-Source Model Categories
+
+Together AI provides access to various categories of cutting-edge open-source models:
+
+* **Large Language Models:**
+  * **Llama 3.1 405B** - Meta's largest and most capable model
+  * **Llama 3.1 70B** - High performance with balanced cost
+  * **Llama 3.1 8B** - Fast, efficient for most use cases
+
+* **Code-Specialized Models:**
+  * **Code Llama 34B** - Advanced code generation and completion
+  * **Code Llama 13B** - Efficient coding assistance
+  * **Phind CodeLlama 34B** - Optimized for development workflows
+
+* **Conversation and Chat Models:**
+  * **Mistral 7B Instruct** - Fast, multilingual conversations
+  * **Qwen 2.5 72B Instruct** - Advanced reasoning and analysis
+  * **Llama 3.1 70B Instruct** - Optimized for chat applications
+
+* **Specialized Models:**
+  * **Nous Hermes 2 Yi 34B** - Enhanced reasoning capabilities
+  * **WizardLM v1.2 13B** - Complex instruction following
+  * **StripedHyena Nous 7B** - Efficient long-context handling
+
+#### 2.2 Model Selection Criteria
+
+Choose models based on your specific needs:
+
+* **Performance Requirements:** Balance between model size and response speed
+* **Cost Considerations:** Larger models cost more per token but may provide better results
+* **Use Case Specifics:** Code generation, creative writing, analysis, or general conversation
+* **Context Length:** Some models support longer context windows for complex tasks
+
+#### 2.3 Pricing and Performance Overview
+
+* **Transparent Pricing:** Pay only for what you use with clear per-token pricing
+* **Performance Metrics:** Check response times and throughput in the Together AI dashboard
+* **Free Credits:** New accounts often include free credits for testing and evaluation
+
+***
+
+### Step 3: Configure the CodinIT VS Code Extension
+
+#### 3.1 Install and Open CodinIT
+
+* **Download VS Code:**\
+  [Download Visual Studio Code](https://code.visualstudio.com/)
+* **Install the CodinIT Extension:**
+  * Open VS Code
+  * Navigate to the Extensions Marketplace (Ctrl+Shift+X or Cmd+Shift+X)
+  * Search for **CodinIT** and install the extension
+
+<Frame>
+  <img src="https://storage.googleapis.com/CodinIT_public_images/docs/assets/CodinIT-extension-arrow.png" alt="CodinIT extension in VS Code" />
+</Frame>
+
+#### 3.2 Configure CodinIT Settings
+
+* **Open CodinIT Settings:**\
+  Click the settings ⚙️ icon within the CodinIT extension
+* **Set API Provider:**\
+  Choose **Together AI** from the API Provider dropdown
+* **Enter Your API Key:**\
+  Paste the API key you generated in Step 1
+* **Select Your Model:**\
+  Choose from available models (e.g., **Llama 3.1 70B Instruct** for balanced performance)
+* **Save and Test:**\
+  Save your settings and test by sending a prompt (e.g., "Explain the difference between async and sync programming.")
+
+***
+
+### Step 4: Authentication and Environment Setup
+
+#### Option A: Environment Variable (Recommended)
+
+1. **Set the Environment Variable:**
+
+   **On Windows (Command Prompt):**
+   ```bash
+   set TOGETHER_API_KEY=your_api_key_here
+   ```
+
+   **On Windows (PowerShell):**
+   ```shell
+   $env:TOGETHER_API_KEY="your_api_key_here"
+   ```
+
+   **On macOS/Linux:**
+   ```bash
+   export TOGETHER_API_KEY=your_api_key_here
+   ```
+
+2. **Make Environment Variable Persistent:**
+
+   **On Windows:**
+   ```bash
+   setx TOGETHER_API_KEY "your_api_key_here"
+   ```
+
+   **On macOS/Linux (add to ~/.bashrc or ~/.zshrc):**
+   ```bash
+   echo 'export TOGETHER_API_KEY="your_api_key_here"' >> ~/.bashrc
+   source ~/.bashrc
+   ```
+
+3. **Restart VS Code:**\
+   Launch VS Code from a terminal where the environment variable is set
+
+#### Option B: Direct Configuration in CodinIT
+
+1. **Open Extension Settings:**\
+   Navigate to the CodinIT extension settings panel
+
+2. **API Key Configuration:**\
+   Enter your Together AI API key directly in the designated field
+
+3. **Security Note:**\
+   Settings are stored locally within VS Code's secure storage
+
+#### Option C: Project-Specific Configuration
+
+1. **Create Configuration File:**\
+   Create a `.env` file in your project root:
+   ```
+   TOGETHER_API_KEY=your_api_key_here
+   ```
+
+2. **Gitignore Configuration:**\
+   Add `.env` to your `.gitignore` file:
+   ```
+   # Environment variables
+   .env
+   .env.local
+   .env.production
+   ```
+
+***
+
+### Step 5: Advanced Configuration and Optimization
+
+#### 5.1 Understanding Rate Limits and Quotas
+
+* **Request Rate Limits:**
+  * Varies by subscription tier and model
+  * Monitor current limits in your Together AI dashboard
+  * Implement exponential backoff for rate limit handling
+
+* **Token Limits:**
+  * Different models have varying context window sizes
+  * Monitor token usage to optimize costs
+  * Use streaming responses for real-time applications
+
+#### 5.2 Cost Management and Optimization
+
+* **Usage Monitoring:**
+  * Track spending in real-time through the Together AI dashboard
+  * Set up billing alerts and usage notifications
+  * Monitor token consumption patterns
+
+* **Model Selection Strategy:**
+  * Use smaller models (7B-13B) for simple tasks
+  * Reserve larger models (70B-405B) for complex reasoning
+  * Experiment with different models to find the optimal cost-performance balance
+
+* **Prompt Optimization:**
+  * Write concise, clear prompts to reduce token usage
+  * Use system prompts effectively to provide context
+  * Implement caching for repeated queries
+
+#### 5.3 Performance Optimization and Best Practices
+
+* **Request Optimization:**
+  * Use appropriate temperature and top-p settings for your use case
+  * Implement request batching when possible
+  * Utilize streaming responses for better user experience
+
+* **Error Handling:**
+  * Implement  retry logic with exponential backoff
+  * Handle model availability and capacity issues gracefully
+  * Log errors for debugging and monitoring
+
+* **Model-Specific Considerations:**
+  * Adjust prompting strategies for different model architectures
+  * Leverage each model's strengths (e.g., Code Llama for programming tasks)
+  * Test multiple models to find the best fit for your use case
+
+#### 5.4 Integration Patterns and Workflows
+
+* **Development Workflow:**
+  * Start with smaller models for rapid prototyping
+  * Use code-specialized models for development tasks
+  * Scale to larger models for production workloads
+
+* **Model Switching:**
+  * Implement fallback mechanisms between models
+  * Use model routing based on query complexity
+  * A/B test different models for performance comparison
+
+* **Monitoring and Analytics:**
+  * Track response quality and user satisfaction
+  * Monitor latency and throughput metrics
+  * Analyze cost per query and optimize accordingly
+
+***
+
+### Step 6: Enterprise Features and Considerations
+
+#### 6.1 Enterprise-Grade Reliability
+
+* **Service Level Agreements:**
+  * Together AI provides enterprise SLAs for production workloads
+  * Guaranteed uptime and response time commitments
+  * Priority support for critical applications
+
+* **Data Privacy and Security:**
+  * Together AI doesn't store your prompts or responses
+  * GDPR and SOC 2 compliance for enterprise requirements
+  * Custom deployment options for sensitive workloads
+
+#### 6.2 Team Management and Collaboration
+
+* **Organization Management:**
+  * Invite team members to your Together AI organization
+  * Set role-based permissions and access controls
+  * Centralized billing and usage monitoring
+
+* **API Key Management:**
+  * Create separate keys for different teams or projects
+  * Monitor usage by API key for cost allocation
+  * Implement key rotation policies
+
+#### 6.3 Custom Models and Fine-Tuning
+
+* **Custom Model Options:**
+  * Together AI offers custom model hosting for enterprise clients
+  * Fine-tuning services for domain-specific applications
+  * Dedicated inference endpoints for high-volume usage
+
+***
+
+### Conclusion
+
+By following this comprehensive guide, your development team can successfully integrate Together AI with the CodinIT VS Code extension to access the best open-source AI models:
+
+* **Account Setup and API Keys:**\
+  Create your Together AI account, generate secure API keys, and implement proper key management practices
+* **Model Selection:**\
+  Choose from dozens of open-source models based on your specific performance, cost, and capability requirements
+* **CodinIT Configuration:**\
+  Set up the extension with your API key and preferred model settings for seamless integration
+* **Authentication and Security:**\
+  Implement secure authentication using environment variables and follow enterprise security best practices
+* **Optimization and Monitoring:**\
+  Monitor usage, manage costs, and optimize performance through Together AI's comprehensive dashboard and analytics
+
+Together AI provides an exceptional platform for accessing cutting-edge open-source AI models with transparent pricing, fast inference, and enterprise-grade reliability. The combination of model variety, performance, and cost-effectiveness makes it an ideal choice for development teams seeking powerful AI capabilities.
+
+For additional resources and support:
+* [Together AI Documentation](https://docs.together.ai/)
+* [Model Playground](https://api.together.xyz/playground) for interactive testing
+* [Together AI Blog](https://www.together.ai/blog) for latest updates and model releases
+* [Community Discord](https://discord.gg/together-ai) for developer discussions and support
+
+Start building with Together AI and unlock the full potential of open-source AI models!
+
+*This guide reflects current Together AI capabilities and pricing. Visit the official documentation for the most up-to-date information on models, features, and pricing.*
