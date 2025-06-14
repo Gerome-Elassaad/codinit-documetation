@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 @import 'tailwindcss-animated';
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+Pro:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap');
 
 @variant dark (&:is(.dark *));
 
@@ -66,6 +67,37 @@ html {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
+
+  /* Typography Variables */
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', Consolas, 'Courier New', monospace;
+  
+  /* Typography Scale */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+  --text-6xl: 3.75rem;
+  
+  /* Line Heights */
+  --leading-tight: 1.25;
+  --leading-snug: 1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+  --leading-loose: 2;
+  
+  /* Letter Spacing */
+  --tracking-tighter: -0.05em;
+  --tracking-tight: -0.025em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.025em;
+  --tracking-wider: 0.05em;
 }
 
 @layer base {
@@ -161,7 +193,333 @@ html {
 
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    line-height: var(--leading-relaxed);
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Typography System */
+  
+  /* Headings */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-tight);
+    color: hsl(var(--foreground));
+    margin-top: 0;
+    scroll-margin-top: 5rem;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    letter-spacing: var(--tracking-tighter);
+  }
+
+  h2 {
+    font-size: clamp(1.75rem, 3.5vw, 2rem);
+    margin-bottom: 1.25rem;
+    margin-top: 3rem;
+    font-weight: 600;
+  }
+
+  h3 {
+    font-size: clamp(1.5rem, 3vw, 1.75rem);
+    margin-bottom: 1rem;
+    margin-top: 2.5rem;
+    font-weight: 600;
+  }
+
+  h4 {
+    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+    margin-bottom: 0.875rem;
+    margin-top: 2rem;
+    font-weight: 500;
+  }
+
+  h5 {
+    font-size: clamp(1.125rem, 2vw, 1.25rem);
+    margin-bottom: 0.75rem;
+    margin-top: 1.75rem;
+    font-weight: 500;
+  }
+
+  h6 {
+    font-size: clamp(1rem, 1.5vw, 1.125rem);
+    margin-bottom: 0.625rem;
+    margin-top: 1.5rem;
+    font-weight: 500;
+  }
+
+  /* Body Text */
+  p {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    line-height: var(--leading-relaxed);
+    margin-bottom: 1.5rem;
+    max-width: 75ch;
+    color: hsl(var(--foreground));
+  }
+
+  /* Links */
+  a {
+    color: hsl(var(--primary));
+    text-decoration: underline;
+    text-decoration-color: hsl(var(--primary) / 0.3);
+    text-underline-offset: 0.25rem;
+    transition: all 0.2s ease-in-out;
+  }
+
+  a:hover {
+    text-decoration-color: hsl(var(--primary));
+    color: hsl(var(--primary) / 0.8);
+  }
+
+  /* Lists */
+  ul, ol {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    line-height: var(--leading-relaxed);
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+    max-width: 75ch;
+  }
+
+  ul {
+    list-style-type: disc;
+  }
+
+  ol {
+    list-style-type: decimal;
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+    color: hsl(var(--foreground));
+  }
+
+  li::marker {
+    color: hsl(var(--muted-foreground));
+  }
+
+  /* Nested lists */
+  ul ul, ol ol, ul ol, ol ul {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Blockquotes */
+  blockquote {
+    font-family: var(--font-heading);
+    font-size: 1.125rem;
+    font-style: italic;
+    line-height: var(--leading-relaxed);
+    margin: 2rem 0;
+    padding: 1.5rem 2rem;
+    border-left: 4px solid hsl(var(--primary));
+    background: hsl(var(--muted) / 0.3);
+    border-radius: 0 0.5rem 0.5rem 0;
+    position: relative;
+    max-width: 75ch;
+  }
+
+  blockquote::before {
+    content: '"';
+    font-size: 3rem;
+    color: hsl(var(--primary) / 0.3);
+    position: absolute;
+    top: 0.5rem;
+    left: 1rem;
+    line-height: 1;
+  }
+
+  blockquote p {
+    margin-bottom: 0;
+    padding-left: 1rem;
+  }
+
+  blockquote cite {
+    display: block;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    font-style: normal;
+    color: hsl(var(--muted-foreground));
+  }
+
+  blockquote cite::before {
+    content: '— ';
+  }
+
+  /* Code */
+  code {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    font-weight: 400;
+    background: hsl(var(--muted));
+    color: hsl(var(--foreground));
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    border: 1px solid hsl(var(--border));
+  }
+
+  pre {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    line-height: var(--leading-normal);
+    background: hsl(var(--muted));
+    color: hsl(var(--foreground));
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid hsl(var(--border));
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    max-width: 100%;
+  }
+
+  pre code {
+    background: transparent;
+    padding: 0;
+    border: none;
+    font-size: inherit;
+  }
+
+  /* Tables */
+  table {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: var(--leading-normal);
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    border: 1px solid hsl(var(--border));
+    border-radius: 0.5rem;
+    overflow: hidden;
+  }
+
+  th, td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid hsl(var(--border));
+  }
+
+  th {
+    background: hsl(var(--muted));
+    font-weight: 600;
+    color: hsl(var(--foreground));
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+
+  /* Horizontal Rule */
+  hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      hsl(var(--border)),
+      transparent
+    );
+    margin: 3rem 0;
+  }
+
+  /* Strong and Emphasis */
+  strong, b {
+    font-weight: 600;
+    color: hsl(var(--foreground));
+  }
+
+  em, i {
+    font-style: italic;
+    color: hsl(var(--foreground));
+  }
+
+  /* Small text */
+  small {
+    font-size: 0.875rem;
+    color: hsl(var(--muted-foreground));
+  }
+
+  /* Mark/Highlight */
+  mark {
+    background: hsl(var(--warning) / 0.2);
+    color: hsl(var(--foreground));
+    padding: 0.125rem 0.25rem;
+    border-radius: 0.25rem;
+  }
+
+  /* Definition Lists */
+  dl {
+    margin: 1.5rem 0;
+  }
+
+  dt {
+    font-weight: 600;
+    color: hsl(var(--foreground));
+    margin-top: 1rem;
+  }
+
+  dd {
+    margin-left: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: hsl(var(--muted-foreground));
+  }
+
+  /* Responsive Typography */
+  @media (max-width: 768px) {
+    body {
+      font-size: 1rem;
+    }
+
+    p, ul, ol {
+      font-size: 1rem;
+      max-width: 100%;
+    }
+
+    blockquote {
+      margin: 1.5rem 0;
+      padding: 1rem 1.5rem;
+      font-size: 1rem;
+    }
+
+    blockquote::before {
+      font-size: 2rem;
+      top: 0.25rem;
+      left: 0.75rem;
+    }
+
+    pre {
+      padding: 1rem;
+      font-size: 0.8rem;
+    }
+
+    table {
+      font-size: 0.875rem;
+    }
+
+    th, td {
+      padding: 0.5rem 0.75rem;
+    }
+  }
+
+  /* Focus styles for accessibility */
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+    border-radius: 0.25rem;
+  }
+
+  /* Selection styles */
+  ::selection {
+    background: hsl(var(--primary) / 0.2);
+    color: hsl(var(--foreground));
   }
 }
 
@@ -169,5 +527,42 @@ html {
   .border-b-header {
     @apply border-b;
     border-bottom-color: var(--color-border-header);
+  }
+
+  /* Typography utilities */
+  .font-heading {
+    font-family: var(--font-heading);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  /* Prose container for optimal reading */
+  .prose {
+    max-width: 75ch;
+    margin: 0 auto;
+  }
+
+  .prose-wide {
+    max-width: 85ch;
+    margin: 0 auto;
+  }
+
+  .prose-narrow {
+    max-width: 65ch;
+    margin: 0 auto;
   }
 }
