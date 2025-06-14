@@ -1,6 +1,6 @@
 @import 'tailwindcss';
 @import 'tailwindcss-animated';
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+Pro:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600;700&display=swap');
 
 @variant dark (&:is(.dark *));
 
@@ -68,10 +68,8 @@ html {
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
 
-  /* Typography Variables */
-  --font-heading: 'Playfair Display', Georgia, serif;
-  --font-body: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', Consolas, 'Courier New', monospace;
+  /* Typography Variables - All Monospace */
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
   
   /* Typography Scale */
   --text-xs: 0.75rem;
@@ -89,12 +87,12 @@ html {
   --leading-tight: 1.25;
   --leading-snug: 1.375;
   --leading-normal: 1.5;
-  --leading-relaxed: 1.625;
-  --leading-loose: 2;
+  --leading-relaxed: 1.6;
+  --leading-loose: 1.8;
   
   /* Letter Spacing */
-  --tracking-tighter: -0.05em;
-  --tracking-tight: -0.025em;
+  --tracking-tighter: -0.025em;
+  --tracking-tight: -0.0125em;
   --tracking-normal: 0em;
   --tracking-wide: 0.025em;
   --tracking-wider: 0.05em;
@@ -193,109 +191,166 @@ html {
 
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-body);
-    font-size: 1.1rem;
+    font-family: var(--font-mono);
+    font-size: 1rem;
     line-height: var(--leading-relaxed);
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    letter-spacing: var(--tracking-normal);
   }
 
-  /* Typography System */
+  /* Monospace Typography System */
   
-  /* Headings */
+  /* Headings - All monospace with different weights and sizes */
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading);
-    font-weight: 600;
+    font-family: var(--font-mono);
     line-height: var(--leading-tight);
     letter-spacing: var(--tracking-tight);
     color: hsl(var(--foreground));
     margin-top: 0;
     scroll-margin-top: 5rem;
+    font-feature-settings: 'liga' 0; /* Disable ligatures for headings */
   }
 
   h1 {
-    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-size: clamp(1.875rem, 4vw, 2.25rem);
     margin-bottom: 1.5rem;
     font-weight: 700;
     letter-spacing: var(--tracking-tighter);
+    border-bottom: 2px solid hsl(var(--border));
+    padding-bottom: 0.5rem;
   }
 
   h2 {
-    font-size: clamp(1.75rem, 3.5vw, 2rem);
-    margin-bottom: 1.25rem;
+    font-size: clamp(1.5rem, 3.5vw, 1.75rem);
+    margin-bottom: 1rem;
     margin-top: 3rem;
     font-weight: 600;
+    position: relative;
+  }
+
+  h2::before {
+    content: '## ';
+    color: hsl(var(--muted-foreground));
+    font-weight: 400;
   }
 
   h3 {
-    font-size: clamp(1.5rem, 3vw, 1.75rem);
-    margin-bottom: 1rem;
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
+    margin-bottom: 0.875rem;
     margin-top: 2.5rem;
     font-weight: 600;
   }
 
+  h3::before {
+    content: '### ';
+    color: hsl(var(--muted-foreground));
+    font-weight: 400;
+  }
+
   h4 {
-    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
-    margin-bottom: 0.875rem;
+    font-size: clamp(1.125rem, 2.5vw, 1.25rem);
+    margin-bottom: 0.75rem;
     margin-top: 2rem;
     font-weight: 500;
   }
 
+  h4::before {
+    content: '#### ';
+    color: hsl(var(--muted-foreground));
+    font-weight: 400;
+  }
+
   h5 {
-    font-size: clamp(1.125rem, 2vw, 1.25rem);
-    margin-bottom: 0.75rem;
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    margin-bottom: 0.625rem;
     margin-top: 1.75rem;
     font-weight: 500;
   }
 
+  h5::before {
+    content: '##### ';
+    color: hsl(var(--muted-foreground));
+    font-weight: 400;
+  }
+
   h6 {
-    font-size: clamp(1rem, 1.5vw, 1.125rem);
-    margin-bottom: 0.625rem;
+    font-size: clamp(0.875rem, 1.5vw, 1rem);
+    margin-bottom: 0.5rem;
     margin-top: 1.5rem;
     font-weight: 500;
   }
 
+  h6::before {
+    content: '###### ';
+    color: hsl(var(--muted-foreground));
+    font-weight: 400;
+  }
+
   /* Body Text */
   p {
-    font-family: var(--font-body);
-    font-size: 1.1rem;
+    font-family: var(--font-mono);
+    font-size: 1rem;
     line-height: var(--leading-relaxed);
-    margin-bottom: 1.5rem;
-    max-width: 75ch;
+    margin-bottom: 1.25rem;
+    max-width: 80ch;
     color: hsl(var(--foreground));
+    font-weight: 400;
   }
 
   /* Links */
   a {
     color: hsl(var(--primary));
-    text-decoration: underline;
-    text-decoration-color: hsl(var(--primary) / 0.3);
-    text-underline-offset: 0.25rem;
+    text-decoration: none;
+    border-bottom: 1px solid hsl(var(--primary) / 0.3);
     transition: all 0.2s ease-in-out;
+    font-weight: 500;
   }
 
   a:hover {
-    text-decoration-color: hsl(var(--primary));
-    color: hsl(var(--primary) / 0.8);
+    border-bottom-color: hsl(var(--primary));
+    background: hsl(var(--primary) / 0.1);
+    padding: 0.125rem 0.25rem;
+    margin: -0.125rem -0.25rem;
+    border-radius: 0.25rem;
   }
 
   /* Lists */
   ul, ol {
-    font-family: var(--font-body);
-    font-size: 1.1rem;
+    font-family: var(--font-mono);
+    font-size: 1rem;
     line-height: var(--leading-relaxed);
-    margin-bottom: 1.5rem;
-    padding-left: 1.5rem;
-    max-width: 75ch;
+    margin-bottom: 1.25rem;
+    padding-left: 2rem;
+    max-width: 80ch;
   }
 
   ul {
-    list-style-type: disc;
+    list-style: none;
+  }
+
+  ul li::before {
+    content: '• ';
+    color: hsl(var(--primary));
+    font-weight: 600;
+    margin-right: 0.5rem;
   }
 
   ol {
-    list-style-type: decimal;
+    list-style: none;
+    counter-reset: item;
+  }
+
+  ol li {
+    counter-increment: item;
+  }
+
+  ol li::before {
+    content: counter(item) '. ';
+    color: hsl(var(--primary));
+    font-weight: 600;
+    margin-right: 0.5rem;
   }
 
   li {
@@ -303,52 +358,49 @@ html {
     color: hsl(var(--foreground));
   }
 
-  li::marker {
-    color: hsl(var(--muted-foreground));
-  }
-
   /* Nested lists */
   ul ul, ol ol, ul ol, ol ul {
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
   }
 
   /* Blockquotes */
   blockquote {
-    font-family: var(--font-heading);
-    font-size: 1.125rem;
-    font-style: italic;
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    font-style: normal;
     line-height: var(--leading-relaxed);
     margin: 2rem 0;
-    padding: 1.5rem 2rem;
+    padding: 1.25rem 1.5rem;
     border-left: 4px solid hsl(var(--primary));
-    background: hsl(var(--muted) / 0.3);
-    border-radius: 0 0.5rem 0.5rem 0;
+    background: hsl(var(--muted) / 0.5);
+    border-radius: 0 0.375rem 0.375rem 0;
     position: relative;
-    max-width: 75ch;
+    max-width: 80ch;
   }
 
   blockquote::before {
-    content: '"';
-    font-size: 3rem;
-    color: hsl(var(--primary) / 0.3);
+    content: '> ';
+    color: hsl(var(--primary));
+    font-weight: 600;
     position: absolute;
-    top: 0.5rem;
     left: 1rem;
-    line-height: 1;
+    top: 1.25rem;
   }
 
   blockquote p {
     margin-bottom: 0;
-    padding-left: 1rem;
+    padding-left: 1.5rem;
+    font-weight: 400;
   }
 
   blockquote cite {
     display: block;
     margin-top: 1rem;
-    font-size: 0.9rem;
-    font-style: normal;
+    font-size: 0.875rem;
     color: hsl(var(--muted-foreground));
+    padding-left: 1.5rem;
   }
 
   blockquote cite::before {
@@ -358,10 +410,10 @@ html {
   /* Code */
   code {
     font-family: var(--font-mono);
-    font-size: 0.9rem;
-    font-weight: 400;
+    font-size: 0.875rem;
+    font-weight: 500;
     background: hsl(var(--muted));
-    color: hsl(var(--foreground));
+    color: hsl(var(--primary));
     padding: 0.25rem 0.5rem;
     border-radius: 0.25rem;
     border: 1px solid hsl(var(--border));
@@ -379,6 +431,16 @@ html {
     overflow-x: auto;
     margin: 1.5rem 0;
     max-width: 100%;
+    position: relative;
+  }
+
+  pre::before {
+    content: '```';
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    color: hsl(var(--muted-foreground));
+    font-size: 0.75rem;
   }
 
   pre code {
@@ -386,12 +448,13 @@ html {
     padding: 0;
     border: none;
     font-size: inherit;
+    color: inherit;
   }
 
   /* Tables */
   table {
-    font-family: var(--font-body);
-    font-size: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
     line-height: var(--leading-normal);
     width: 100%;
     border-collapse: collapse;
@@ -405,12 +468,17 @@ html {
     padding: 0.75rem 1rem;
     text-align: left;
     border-bottom: 1px solid hsl(var(--border));
+    font-weight: 400;
   }
 
   th {
     background: hsl(var(--muted));
     font-weight: 600;
     color: hsl(var(--foreground));
+  }
+
+  tr:nth-child(even) {
+    background: hsl(var(--muted) / 0.3);
   }
 
   tr:last-child td {
@@ -421,29 +489,51 @@ html {
   hr {
     border: none;
     height: 1px;
-    background: linear-gradient(
-      to right,
-      transparent,
-      hsl(var(--border)),
-      transparent
-    );
+    background: hsl(var(--border));
     margin: 3rem 0;
+    position: relative;
+  }
+
+  hr::before {
+    content: '---';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: hsl(var(--background));
+    color: hsl(var(--muted-foreground));
+    padding: 0 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
   }
 
   /* Strong and Emphasis */
   strong, b {
-    font-weight: 600;
+    font-weight: 700;
     color: hsl(var(--foreground));
   }
 
   em, i {
     font-style: italic;
     color: hsl(var(--foreground));
+    position: relative;
+  }
+
+  em::before, i::before {
+    content: '_';
+    color: hsl(var(--muted-foreground));
+    margin-right: 0.125rem;
+  }
+
+  em::after, i::after {
+    content: '_';
+    color: hsl(var(--muted-foreground));
+    margin-left: 0.125rem;
   }
 
   /* Small text */
   small {
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     color: hsl(var(--muted-foreground));
   }
 
@@ -453,11 +543,13 @@ html {
     color: hsl(var(--foreground));
     padding: 0.125rem 0.25rem;
     border-radius: 0.25rem;
+    font-weight: 500;
   }
 
   /* Definition Lists */
   dl {
     margin: 1.5rem 0;
+    font-family: var(--font-mono);
   }
 
   dt {
@@ -466,46 +558,55 @@ html {
     margin-top: 1rem;
   }
 
+  dt::after {
+    content: ':';
+    color: hsl(var(--muted-foreground));
+  }
+
   dd {
-    margin-left: 1.5rem;
+    margin-left: 2rem;
     margin-bottom: 0.5rem;
     color: hsl(var(--muted-foreground));
+  }
+
+  dd::before {
+    content: '└─ ';
+    color: hsl(var(--muted-foreground));
+    margin-right: 0.5rem;
   }
 
   /* Responsive Typography */
   @media (max-width: 768px) {
     body {
-      font-size: 1rem;
+      font-size: 0.875rem;
     }
 
     p, ul, ol {
-      font-size: 1rem;
+      font-size: 0.875rem;
       max-width: 100%;
     }
 
     blockquote {
       margin: 1.5rem 0;
-      padding: 1rem 1.5rem;
-      font-size: 1rem;
-    }
-
-    blockquote::before {
-      font-size: 2rem;
-      top: 0.25rem;
-      left: 0.75rem;
+      padding: 1rem 1.25rem;
+      font-size: 0.875rem;
     }
 
     pre {
       padding: 1rem;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
     }
 
     table {
-      font-size: 0.875rem;
+      font-size: 0.75rem;
     }
 
     th, td {
       padding: 0.5rem 0.75rem;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      letter-spacing: var(--tracking-normal);
     }
   }
 
@@ -530,14 +631,6 @@ html {
   }
 
   /* Typography utilities */
-  .font-heading {
-    font-family: var(--font-heading);
-  }
-
-  .font-body {
-    font-family: var(--font-body);
-  }
-
   .font-mono {
     font-family: var(--font-mono);
   }
@@ -552,17 +645,31 @@ html {
 
   /* Prose container for optimal reading */
   .prose {
-    max-width: 75ch;
+    max-width: 80ch;
     margin: 0 auto;
   }
 
   .prose-wide {
-    max-width: 85ch;
+    max-width: 90ch;
     margin: 0 auto;
   }
 
   .prose-narrow {
-    max-width: 65ch;
+    max-width: 70ch;
     margin: 0 auto;
+  }
+
+  /* Blog-style utilities */
+  .blog-content {
+    font-family: var(--font-mono);
+    line-height: var(--leading-relaxed);
+  }
+
+  .code-style {
+    font-feature-settings: 'liga' 1, 'calt' 1;
+  }
+
+  .no-ligatures {
+    font-feature-settings: 'liga' 0, 'calt' 0;
   }
 }
